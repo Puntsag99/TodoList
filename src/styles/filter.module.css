@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.filterButton {
+  display: flex;
+  column-gap: 6px;
+}
+
+.buttonCont {
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  transition: background-color 0.3s ease;
+}
+
+.buttonCont:hover {
+  background-color: #3c82f6;
+}

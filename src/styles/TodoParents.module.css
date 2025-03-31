@@ -13,7 +13,7 @@
 .ContainerChild {
   width: 377px;
   display: flex;
-  height: 290px;
+  /* height: 290px; */
   row-gap: 20px;
   padding-top: 24px;
   align-items: center;
@@ -29,12 +29,66 @@
 .ChildText {
   width: 280px;
   height: 40px;
+  /* outline: none; */
+  padding-left: 10px;
   border-radius: 6px;
+  border: 1px solid #e4e4e7;
+}
+
+.ChildText:focus {
+  outline: none;
+  border: 2px solid #3498db;
 }
 
 .ChildButton {
   width: 59px;
   height: 40px;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #f9f9f9;
   border-radius: 6px;
   background-color: #3c82f6;
+}
+
+.ToDotext {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.FilterCont {
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+}
+
+.Ptext {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.TaskInput {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  width: 345px;
+  /* justify-content: space-evenly; */
+}
+
+.checkBox {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.DeleteButton {
+  border: none;
+  height: 30px;
+  font-size: 14px;
+  color: #ef4444;
+  margin-left: 180px;
+  border-radius: 6px;
+  padding-inline: 12px;
+  background-color: #fef2f2;
 }
