@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.TodoContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding-top: 140px;
+  justify-content: center;
+  background-color: #f3f4f6;
+  font-family: "Inter", sans-serif;
+}
+
+.ContainerChild {
+  width: 377px;
+  display: flex;
+  height: 290px;
+  row-gap: 20px;
+  padding-top: 24px;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.ChildInput {
+  display: flex;
+  column-gap: 6px;
+}
+
+.ChildText {
+  width: 280px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.ChildButton {
+  width: 59px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #3c82f6;
+}
