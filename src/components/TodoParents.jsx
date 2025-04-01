@@ -5,6 +5,7 @@ import { Filter } from "./Filter";
 export const TodoParents = () => {
   const [inputValue, setInputValue] = useState("");
   const [taskList, settaskList] = useState([]);
+  // const [Filter, setFilter] = useState("All");`
 
   const handleTaskAddition = (event) => {
     event.preventDefault();
@@ -27,7 +28,6 @@ export const TodoParents = () => {
   return (
     <div className={styles.ContainerChild}>
       <p className={styles.ToDotext}>To-Do List</p>
-
       <div className={styles.FilterCont}>
         <div className={styles.ChildInput}>
           <input
@@ -45,7 +45,9 @@ export const TodoParents = () => {
         <Filter />
       </div>
 
-      <p className={styles.Ptext}>No tasks yet.Add one above!</p>
+      {taskList.length === 0 && (
+        <p className={styles.Ptext}>No tasks yet.Add one above!</p>
+      )}
 
       {taskList.map((item, index) => (
         <div className={styles.TaskInput}>
@@ -54,6 +56,16 @@ export const TodoParents = () => {
           <button className={styles.DeleteButton}>Delete</button>
         </div>
       ))}
+
+      {/* <div className={styles.clearContainer}>
+        <p className={styles.clearText}>0 of 3 tasks completed</p>
+        <button className={styles.cleadRed}>Clear Completed</button>
+      </div> */}
+
+      <div className={styles.footer}>
+        <span>Powered by</span>
+        <span className={styles.pineCone}> Pinecone academy</span>
+      </div>
     </div>
   );
 };

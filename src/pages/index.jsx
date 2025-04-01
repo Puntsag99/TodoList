@@ -1,8 +1,8 @@
 import { TodoParents } from "@/components/TodoParents";
-import styles from "@/styles/TodoParents.module.css";
+
 const Page = () => {
   return (
-    <div className={styles.TodoContainer}>
+    <div>
       <TodoParents />
     </div>
   );

@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-.TodoContainer {
+body {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   padding-top: 140px;
   justify-content: center;
@@ -69,17 +69,20 @@
 }
 
 .TaskInput {
+  width: 345px;
   display: flex;
+  padding: 16px;
+  padding: 16px;
   column-gap: 10px;
   align-items: center;
-  width: 345px;
+  background-color: #f9fafb;
   /* justify-content: space-evenly; */
 }
 
 .checkBox {
-  margin-left: 10px;
   width: 20px;
   height: 20px;
+  margin-left: 10px;
 }
 
 .DeleteButton {
@@ -87,8 +90,39 @@
   height: 30px;
   font-size: 14px;
   color: #ef4444;
-  margin-left: 180px;
+  margin-left: auto;
   border-radius: 6px;
   padding-inline: 12px;
   background-color: #fef2f2;
+}
+
+.clearContainer {
+  width: 345px;
+  display: flex;
+  padding-top: 16px;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+}
+
+.clearText {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.cleadRed {
+  border: none;
+  font-size: 14px;
+  color: #ef4444;
+  background-color: transparent;
+}
+
+.footer {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+.pineCone {
+  color: #3b73ed;
 }

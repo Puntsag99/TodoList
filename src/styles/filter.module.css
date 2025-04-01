@@ -7,14 +7,12 @@
 
 .buttonCont {
   border: none;
-  cursor: pointer;
+
+  /* color: #fff; */
+  background-color: #3c82f6;
+
   font-size: 12px;
   font-weight: 400;
   border-radius: 6px;
   background-color: #f3f4f6;
-  transition: background-color 0.3s ease;
-}
-
-.buttonCont:hover {
-  background-color: #3c82f6;
 }
