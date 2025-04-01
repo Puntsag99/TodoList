@@ -5,7 +5,7 @@ import { Filter } from "./Filter";
 export const TodoParents = () => {
   const [inputValue, setInputValue] = useState("");
   const [taskList, settaskList] = useState([]);
-  // const [Filter, setFilter] = useState("All");`
+  const [filterStatus, setFilterStatus] = useState("All");
 
   const handleTaskAddition = (event) => {
     event.preventDefault();
@@ -25,6 +25,22 @@ export const TodoParents = () => {
     setInputValue("");
   };
 
+  const completedCount = taskList.filter((task) => task.isCompleted).length;
+
+  const toggleComplete = (taskId) => {
+    settaskList((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
+      )
+    );
+  };
+
+  const filteredTasks = taskList.filter((task) => {
+    if (filterStatus === "Active") return !task.isCompleted;
+    if (filterStatus === "Completed") return task.isCompleted;
+    return true;
+  });
+
   return (
     <div className={styles.ContainerChild}>
       <p className={styles.ToDotext}>To-Do List</p>
@@ -42,25 +58,34 @@ export const TodoParents = () => {
           </button>
         </div>
 
-        <Filter />
+        <Filter setFilterStatus={setFilterStatus} />
       </div>
 
       {taskList.length === 0 && (
-        <p className={styles.Ptext}>No tasks yet.Add one above!</p>
+        <p className={styles.Ptext}>No tasks yet. Add one above!</p>
       )}
 
-      {taskList.map((item, index) => (
-        <div className={styles.TaskInput}>
-          <input key={index} type="text" className={styles.checkBox} />
+      {filteredTasks.map((item, index) => (
+        <div key={index} className={styles.TaskInput}>
+          <input
+            type="checkbox"
+            className={styles.checkBox}
+            checked={item.isCompleted}
+            onChange={() => toggleComplete(item.id)}
+          />
           <p>{item.text}</p>
           <button className={styles.DeleteButton}>Delete</button>
         </div>
       ))}
 
-      {/* <div className={styles.clearContainer}>
-        <p className={styles.clearText}>0 of 3 tasks completed</p>
-        <button className={styles.cleadRed}>Clear Completed</button>
-      </div> */}
+      {taskList.length > 0 && (
+        <div className={styles.clearContainer}>
+          <p className={styles.clearText}>
+            {completedCount} of {taskList.length} tasks completed
+          </p>
+          <button className={styles.cleadRed}>Clear Completed</button>
+        </div>
+      )}
 
       <div className={styles.footer}>
         <span>Powered by</span>

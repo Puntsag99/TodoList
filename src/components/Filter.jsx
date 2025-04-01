@@ -6,14 +6,17 @@ const buttons = [
   { name: "Button 3", width: "87px", height: "32px", description: "Completed" },
 ];
 
-export const Filter = () => {
+export const Filter = ({ setFilterStatus }) => {
   const [click, setclick] = useState("All");
   return (
     <div className={styles.filterButton}>
       {buttons.map((item, index) => (
         <button
-          onClick={() => setclick(item.description)}
           key={index}
+          onClick={() => {
+            setclick(item.description);
+            setFilterStatus(item.description);
+          }}
           className={`${styles.buttonCont} ${
             click === item.description ? styles.activeButton : ""
           }`}

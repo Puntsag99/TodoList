@@ -7,12 +7,13 @@
 
 .buttonCont {
   border: none;
-
-  /* color: #fff; */
-  background-color: #3c82f6;
-
   font-size: 12px;
   font-weight: 400;
+  color: #363636;
   border-radius: 6px;
-  background-color: #f3f4f6;
+  background-color: #e5e7eb;
+}
+.activeButton {
+  color: #fff;
+  background-color: #3c82f6;
 }
