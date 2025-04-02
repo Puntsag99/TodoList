@@ -25,6 +25,22 @@ export const TodoParents = () => {
     setInputValue("");
   };
 
+  const deleteTask = (taskId) => {
+    settaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    const isConfermed = window.confirm(
+      "Are you sure you want to delete this task ? "
+    );
+    if (isConfermed) {
+    }
+  };
+
+  const clearComplete = () => {
+    settaskList((prevTasks) => prevTasks.filter((task) => !task.isCompleted));
+    const isCleared = window.confirm(
+      "Are you sure you want to clear all completed tasks?"
+    );
+  };
+
   const completedCount = taskList.filter((task) => task.isCompleted).length;
 
   const toggleComplete = (taskId) => {
@@ -45,7 +61,7 @@ export const TodoParents = () => {
     <div className={styles.ContainerChild}>
       <p className={styles.ToDotext}>To-Do List</p>
       <div className={styles.FilterCont}>
-        <div className={styles.ChildInput}>
+        <form className={styles.ChildInput}>
           <input
             type="text"
             placeholder="Add new a task..."
@@ -53,10 +69,14 @@ export const TodoParents = () => {
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
           />
-          <button className={styles.ChildButton} onClick={handleTaskAddition}>
+          <button
+            type="submit"
+            className={styles.ChildButton}
+            onClick={handleTaskAddition}
+          >
             Add
           </button>
-        </div>
+        </form>
 
         <Filter setFilterStatus={setFilterStatus} />
       </div>
@@ -73,8 +93,19 @@ export const TodoParents = () => {
             checked={item.isCompleted}
             onChange={() => toggleComplete(item.id)}
           />
-          <p>{item.text}</p>
-          <button className={styles.DeleteButton}>Delete</button>
+          <p
+            style={{
+              textDecoration: item.isCompleted ? "line-through" : "none",
+            }}
+          >
+            {item.text}
+          </p>
+          <button
+            className={styles.DeleteButton}
+            onClick={() => deleteTask(item.id)}
+          >
+            Delete
+          </button>
         </div>
       ))}
 
@@ -83,7 +114,9 @@ export const TodoParents = () => {
           <p className={styles.clearText}>
             {completedCount} of {taskList.length} tasks completed
           </p>
-          <button className={styles.cleadRed}>Clear Completed</button>
+          <button className={styles.cleadRed} onClick={() => clearComplete()}>
+            Clear Completed
+          </button>
         </div>
       )}
 
